@@ -15,19 +15,21 @@ defmodule DeferredConfig.Mixfile do
      description: description(),
      source_url: "https://github.com/mrluc/deferred_config",
      homepage_url: "https://github.com/mrluc/deferred_config",
-     docs: [main: "DeferredConfig", extras: ["README.md"]]
+     docs: [main: "readme",
+            extras: ["README.md"]]
     ]
   end
 
   def description do
-    "Seamless runtime config. Support the 'system tuple' pattern for all your app's config with a single line of code." 
+    "Seamless runtime config with one line of code. "<>
+      "No special accessors or mappings. Full support for " <>
+      "'{:system...} tuple' and '{m,f,a}' runtime config patterns."
   end
 
   def package do
     [
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["Luc Fueston"],
-      contributors: ["Luc Fueston"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/mrluc/deferred_config",
                "Docs" => "https://hexdocs.pm/deferred_config/readme.html"}

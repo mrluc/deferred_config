@@ -2,8 +2,8 @@ defmodule ReplacingWalk do
   @moduledoc """
   A hastily constructed replacing walk for use
   with `DeferredConfig`; not
-  very performant, but for options
-  and config, can be convenient.
+  very performant, but for transforming data
+  in options and config, can be convenient.
   """
 
   require Logger
@@ -11,9 +11,7 @@ defmodule ReplacingWalk do
   @doc """
   Recursive replacing walk that uses `recognize` and
   `transform` functions to return a transformed version
-  of arbitrary data. Created quickly for
-  `:deferred_config`, so it's probably got some holes;
-  tests that break it are welcome.
+  of arbitrary data. 
 
       iex> ReplacingWalk.walk [1, 2, 3], &(&1 == 2), &(&1 * &1)
       [1,4,3]
@@ -33,12 +31,16 @@ defmodule ReplacingWalk do
   structs that implement Enumerable, but **currently we expect
   their `Enumerable` implementation to work like a Map.
   If you feed this an Enumerable struct that doesn't iterate 
-  like Map -- ie, iterate over `{k, v}`, it will die. 
+  like Map -- ie, doesn't iterate over `{k, v}` -- it will die. 
   (See an example in tests).
-
+  
   We may change that behavior in the future -- either removing
   support for arbitrary Enumerables, or provision another protocol
   that can be implemented to make a data type replacing-walkable.
+
+  Created quickly for
+  `:deferred_config`, so it's probably got some holes;
+  tests that break it are welcome.
   """
   
   # lists

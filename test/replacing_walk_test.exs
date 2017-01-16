@@ -9,6 +9,7 @@ defimpl Enumerable, for: Spam do
     {:done, acc}
   end
 end
+
 defmodule EnvTest do
   use ExUnit.Case
   doctest DeferredConfig
@@ -75,7 +76,7 @@ defmodule EnvTest do
         :b => 2,
         :c => [
           [ :balls, {:balls, 3} ],  # tuples NOT replaced yet
-          [ balls: 2, balls: 3 ]        # kvlist NOT replaced yet
+          [ balls: 2, balls: 3 ]    # kvlist NOT replaced yet
         ],
         :d => :balls   # replaceable value
       }
