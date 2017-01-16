@@ -3,7 +3,7 @@ defmodule DeferredConfig.Mixfile do
 
   def project do
     [app: :deferred_config,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.4-rc",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,

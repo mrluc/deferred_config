@@ -125,7 +125,6 @@ defmodule DeferredConfig do
   def default_transforms(), do: @default_rts
 
   # apply sequence of replacing walks to a value
-  defp apply_rts(val, rts \\ [])
   defp apply_rts(val, []), do: val
   defp apply_rts(val, rts) when is_list(rts) do
     Enum.reduce(rts, val, fn {r, t}, acc_v ->

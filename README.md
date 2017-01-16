@@ -58,12 +58,10 @@ In mix.exs,
 Then, in your application startup, add the following line:
 
     defmodule Mine.Application do
-      ...
+      # ...
       def start(_type, _args) do
-
-        :mine |> DeferredConfig.populate(:app_name)
-
-        ...
+        DeferredConfig.populate(:mine) # <--- here
+        # ...
       end
     end
 
