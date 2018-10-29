@@ -7,10 +7,11 @@ defmodule Spam do
 end
 
 defimpl Enumerable, for: Spam do
-  # default reduce-based
   def count(_), do: {:error, __MODULE__}
-  # default reduce-based
+
   def member?(_, _), do: {:error, __MODULE__}
+
+  def slice(_), do: {:error, __MODULE__}
 
   def reduce(%{a: a, b: b}, {_, acc}, fun) do
     {:cont, acc} = fun.({:a, a}, acc)
