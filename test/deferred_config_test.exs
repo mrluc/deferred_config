@@ -5,7 +5,7 @@ defmodule DeferredConfigTest do
   @app :lazy_cfg_test_appname
 
   defmodule MyMod do
-    def get_my_key("" <> bin), do: "your key is 1234. write it down."
+    def get_my_key("" <> _bin), do: "your key is 1234. write it down."
   end
 
   setup do
@@ -86,7 +86,7 @@ defmodule DeferredConfigTest do
   defp delete_all_env(app) do
     app
     |> Application.get_all_env()
-    |> Enum.each(fn {k, v} ->
+    |> Enum.each(fn {k, _v} ->
       Application.delete_env(app, k)
     end)
   end
