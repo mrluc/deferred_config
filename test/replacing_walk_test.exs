@@ -37,8 +37,8 @@ defmodule EnvTest do
   end
 
   test "maps" do
-    data = %{:a => 1, :b => 2, :a => :a}
-    expected = %{:balls => 1, :b => 2, :balls => :balls}
+    data = %{:a => 1, :b => 2}
+    expected = %{:balls => 1, :b => 2}
 
     actual =
       data
