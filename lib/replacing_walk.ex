@@ -67,7 +67,7 @@ defmodule ReplacingWalk do
   def walk(%{}, _, _), do: %{}
 
   # kv tuples (very common in config)
-  def walk(t = {k,v}, recognize, transform) do
+  def walk({_k, _v} = t, recognize, transform) do
     t = maybe_transform_leaf(t, recognize, transform)
     if is_tuple t do
       {k, v} = t
