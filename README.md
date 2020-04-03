@@ -1,5 +1,8 @@
 ## Deferred Config
 
+
+**Stable but DEPRECATED, just because in the past few years Elixir itself has gained ample support for runtime config, built right in! `release.exs` and other means -- so if you're coming here and wondering if this meets a need for you, you *probably* don't need it.**
+
 Seamless runtime config with one line of code. In
 your application's `start/2` method, call:
 
