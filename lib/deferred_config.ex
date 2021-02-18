@@ -109,11 +109,11 @@ defmodule DeferredConfig do
     end)
   end
 
-  @doc "`Application.put_env/3` for config kvlist"
+  @doc "`Application.put_env/4` for config kvlist"
   def apply_transformed_cfg!(kvlist, app) do
     kvlist
     |> Enum.each(fn {k,v} ->
-      Application.put_env(app, k, v)
+      Application.put_env(app, k, v, persistent: true)
     end)
   end
 
